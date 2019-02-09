@@ -48,3 +48,4 @@ def searchInsert(nums, target):
         else:
             high = mid -1
     return low
+# The time complexity is O(log(n)), space complexity is constant
