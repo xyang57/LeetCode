@@ -57,3 +57,27 @@ def lengthOfLongestSubstring(s: 'str') -> 'int':
     return length_maximum
 
 # Time complexity: O(n^2), because *in* is O(n); space complexity: O(n)
+    
+"""
+Solution 3: similar as solution 2, but use dictionary to store the index of duplicates, and *in* with 
+dictionary is O(1)
+"""
+def lengthOfLongestSubstring(self, s: 'str') -> 'int':
+    length_maximum = 0
+    dic = {}
+    i = 0
+    for j in range(len(s)):
+        if s[j] not in dic:
+            dic[s[j]] = j    
+            length_maximum = max(j-i+1,length_maximum)
+        else:
+            length_maximum = max(j-i,length_maximum)
+            new_i = dic[s[j]] + 1
+            for k in range(i,dic[s[j]]+1):
+                dic.pop(s[k])
+                
+            i = new_i
+                
+            dic[s[j]] = j
+    return length_maximum
+# Time complexity is O(n), space complexity: O(n)
