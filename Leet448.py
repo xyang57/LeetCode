@@ -45,3 +45,32 @@ def findDisappearedNumbers(nums: 'List[int]') -> 'List[int]':
                 result.append(i)
         return result
 # Time complexity: O(n), space complexity: O(n)
+        
+"""
+Solution3:
+    check the correct index for the number, flag the index as having negative value;
+    iterate the array, and the one with positve value's index +1 would be what we want
+"""
+def findDisappearedNumbers(nums: 'List[int]') -> 'List[int]':
+    for i in range(len(nums)):
+        index = abs(nums[i]) - 1
+        nums[index] = abs(nums[index])*-1
+    return [i + 1 for i in range(len(nums)) if nums[i] > 0]
+#Time complexity: O(n); space complexity: O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
