@@ -28,3 +28,4 @@ def firstUniqChar(s: 'str') -> 'int':
         if dic[s[i]] == 1:
             return i
     return -1
+# Time complexity: O(n); space complexity: O(n)
