@@ -28,6 +28,24 @@ def maxArea(height):
                 max_area = area
     return max_area
 # Time complexity: O(n^2), space complexity: O(1)
-    
 
-    
+"""
+Solution2:
+    two pointer. First calculate the widest area; next move the shorter height one more step
+    until two pointers meet
+"""  
+def maxArea(height):
+    end = len(height) - 1
+    start = 0
+    max_area = 0
+    while start < end:
+        area = (end-start)*min(height[start], height[end])
+        if area > max_area:
+            max_area = area
+        if height[start] > height[end]:
+            end -= 1
+        else:
+            start += 1
+    return max_area
+
+# Time complexity: O(n); space complexity: O(1)
