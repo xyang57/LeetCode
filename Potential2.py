@@ -82,11 +82,8 @@ def minMeetingRooms(intervals):
         return 0
     if len(intervals) == 1:
         return 1
-    start = []
-    end = []
-    for interval in intervals:
-        start.append(interval.start)
-        end.append(interval.end)
+    start = [i.start for i in intervals]
+    end = [i.end for i in intervals]
     start.sort()
     end.sort()
     count = 1
