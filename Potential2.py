@@ -95,7 +95,7 @@ def minMeetingRooms(intervals):
             j+=1
         i+=1       
     return count
-# Time complexity: O(nlogn); space complexity: O(1)
+# Time complexity: O(nlogn); space complexity: O(n)
                 
                 
         
