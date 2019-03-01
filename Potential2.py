@@ -73,8 +73,36 @@ def minMeetingRooms(intervals):
     return len(result)
 # Time complexity: same as solution1; space complexity: best:O(1); worst: O(n)
 
-
+"""
+Solution3: treat start and end individually. If there are three starts time before the first end time, then
+we know we need at least three rooms
+"""
+def minMeetingRooms(intervals):
+    if len(intervals) == 0:
+        return 0
+    if len(intervals) == 1:
+        return 1
+    start = []
+    end = []
+    for interval in intervals:
+        start.append(interval.start)
+        end.append(interval.end)
+    start.sort()
+    end.sort()
+    count = 1
+    i = j = 0
+    while i < len(start)-1:
+        if start[i+1] < end[j]:
+            count+=1
+        else:
+            j+=1
+        i+=1       
+    return count
+# Time complexity: O(nlogn); space complexity: O(1)
+                
+                
         
+
                 
         
         
